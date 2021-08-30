@@ -41,7 +41,6 @@ class toDoList(Frame):
             toDoKeys = list(toDoDict.keys())
             toDoDict[toDoKeys[-1]+1] = text
             toDoKeys = list(toDoDict.keys())
-            print(toDoDict)
             toDoArr = []
             for i in toDoKeys:
                 toDoArr.append(f'{i}.- {toDoDict[i]}')
@@ -64,15 +63,13 @@ class toDoList(Frame):
         try:
             rindex = int(self.toRemoveTextBox.get())
             errorIndex.config(text = '')
-            if rindex == 0 or len(toDoKeys) == 1: raise ValueError
+            if rindex == 0 or len(toDoKeys) == 1 or len(toDoKeys)-1 < rindex: raise ValueError
 
             for i in range(rindex, len(toDoKeys)-1):
                 
                 toDoDict[i] = toDoDict[i+1]
 
             toDoDict.pop(len(toDoKeys)-1)
-
-            print(toDoDict)
 
             toDoKeys = toDoDict.keys()
             
