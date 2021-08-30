@@ -1,5 +1,4 @@
 from tkinter import *
-from typing import ValuesView
 
 class toDoList(Frame):
 
